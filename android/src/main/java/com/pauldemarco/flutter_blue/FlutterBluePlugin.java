@@ -573,10 +573,10 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
 //                     return;
 //                 }
 
-                if(!gattServer.writeDescriptor(cccDescriptor)) {
-                    result.error("set_notification_error", "error when writing the descriptor", null);
-                    return;
-                }
+//                 if(!gattServer.writeDescriptor(cccDescriptor)) {
+//                     result.error("set_notification_error", "error when writing the descriptor", null);
+//                     return;
+//                 }
 
                 result.success(null);
                 break;
