@@ -549,10 +549,10 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
                 if(request.getEnable()) {
                     boolean canNotify = (characteristic.getProperties() & BluetoothGattCharacteristic.PROPERTY_NOTIFY) > 0;
                     boolean canIndicate = (characteristic.getProperties() & BluetoothGattCharacteristic.PROPERTY_INDICATE) > 0;
-                    if(!canIndicate && !canNotify) {
-                        result.error("set_notification_error", "the characteristic cannot notify or indicate", null);
-                        return;
-                    }
+//                     if(!canIndicate && !canNotify) {
+//                         result.error("set_notification_error", "the characteristic cannot notify or indicate", null);
+//                         return;
+//                     }
                     if(canIndicate) {
                         value = BluetoothGattDescriptor.ENABLE_INDICATION_VALUE;
                     }
