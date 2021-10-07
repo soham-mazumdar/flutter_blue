@@ -536,15 +536,7 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
                     characteristic = locateCharacteristic(gattServer, request.getServiceUuid(), request.getSecondaryServiceUuid(), request.getCharacteristicUuid());
                     cccDescriptor = characteristic.getDescriptor(CCCD_ID);
                     if(cccDescriptor == null) {
-//                         showDialog(
-//                             context: context,
-//                             builder: (context) {
-//                               return AlertDialog(
-// //                                 title: Text('7'),
-//                                 content: Text("could not locate CCCD descriptor for characteristic: " +characteristic.getUuid().toString()),
-//                               );
-//                           });
-                                                log(LogLevel.INFO, "could not locate CCCD descriptor for characteristic: " +characteristic.getUuid().toString());
+                        log(LogLevel.INFO, "could not locate CCCD descriptor for characteristic: " +characteristic.getUuid().toString());
 //                         throw new Exception("could not locate CCCD descriptor for characteristic: " +characteristic.getUuid().toString());
                     }
                 } catch(Exception e) {
@@ -576,10 +568,10 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
                     return;
                 }
 
-                if(!cccDescriptor.setValue(value)) {
-                    result.error("set_notification_error", "error when setting the descriptor value to: " + value, null);
-                    return;
-                }
+//                 if(!cccDescriptor.setValue(value)) {
+//                     result.error("set_notification_error", "error when setting the descriptor value to: " + value, null);
+//                     return;
+//                 }
 
                 if(!gattServer.writeDescriptor(cccDescriptor)) {
                     result.error("set_notification_error", "error when writing the descriptor", null);
